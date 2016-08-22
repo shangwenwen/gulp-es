@@ -1,0 +1,19 @@
+.table {
+    th,
+    td {
+        vertical-align: middle;
+    }
+    thead th {
+	    vertical-align: middle;
+	    border-bottom: 1px solid #eceeef;
+	    font-weight: normal;
+	}
+}
+
+
+.thead-inverse {
+    th {
+        color: #666;
+        background-color: #f4f4f4;
+    }
+}

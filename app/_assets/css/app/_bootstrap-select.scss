@@ -1,0 +1,31 @@
+.bootstrap-select.btn-group .dropdown-toggle .caret {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    margin-top: -2px;
+    vertical-align:top;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li {
+    position: relative;
+    font-size: 14px;
+    padding: 4px 8px;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li:hover {
+    background-color: #f4f4f4
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    color: #666;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li:hover a {
+    color: #3778e1;
+}

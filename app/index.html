@@ -1,0 +1,563 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+@include('_includes/header.html')
+
+<body>
+    <div class="es-wrapper">
+        <nav class="es-header navbar-fixed-top">
+            <a class="es-brand" href="#">
+                <img src="_assets/img/logo_header.png">
+            </a>
+            <ul class="es-menu pull-left">
+                <li class="menu-item active">
+                    <a href="#">商品中心</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">店铺中心</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">运营中心</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">消息中心</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">仓库管理</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">订单管理</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">系统设置</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">账号中心</a>
+                </li>
+            </ul>
+            <ul class="es-user-center pull-right">
+                <li class="es-notice">
+                    <a href="javascript:void();" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bell"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <p>notice</p>
+                    </div>
+                </li>
+                <li class="es-tasks">
+                    <a href="javascript:void();" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-tasks"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <p>tasks</p>
+                    </div>
+                </li>
+                <li class="es-user">
+                    <a href="javascript:void();" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bell"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <p>user</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="es-container">
+            <div class="es-sidebar-wrapper">
+                <div class="es-sidebar-menu">
+                    <ul class="sidebar-menu">
+                        <li class="header">商品中心</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-database"></i>
+                                <span>商品属性</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="###"><i class="fa fa-circle-o"></i>活动图</a></li>
+                                <li class="active"><a href="###"><i class="fa fa-circle-o"></i>商品拍摄图</a></li>
+                                <li><a href="###"><i class="fa fa-circle-o"></i>商品PS图</a></li>
+                                <li><a href="###"><i class="fa fa-circle-o"></i>商品设计图</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-align-left"></i>
+                                <span>商品详情图</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-check-circle"></i>
+                                <span>商品审核</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-github-square"></i>
+                                <span>素材管理</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="###"><i class="fa fa-circle-o"></i>活动图</a></li>
+                                <li class="active"><a href="###"><i class="fa fa-circle-o"></i>商品拍摄图</a></li>
+                                <li><a href="###"><i class="fa fa-circle-o"></i>商品PS图</a></li>
+                                <li><a href="###"><i class="fa fa-circle-o"></i>商品设计图</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-text-width"></i>
+                                <span>商品文案</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="###"><i class="fa fa-circle-o"></i>活动图</a></li>
+                                <li class="active"><a href="###"><i class="fa fa-circle-o"></i>商品拍摄图</a></li>
+                                <li><a href="###"><i class="fa fa-circle-o"></i>商品PS图</a></li>
+                                <li><a href="###"><i class="fa fa-circle-o"></i>商品设计图</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-photo"></i>
+                                <span>主商品设置</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-trash"></i>
+                                <span>回收站</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="es-sidebar-toggler">
+                    <button class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i></button>
+                </div>
+            </div>
+            <div class="es-content-wrapper">
+                <div class="es-content">
+                    <div class="row">
+                        <nav class="breadcrumb">
+                            <a class="breadcrumb-item" href="#"><i class="fa fa-home mr5"></i>首页</a>
+                            <a class="breadcrumb-item" href="#">商品中心</a>
+                            <span class="breadcrumb-item active">商品详情设置</span>
+                        </nav>
+                    </div>
+                    <div class="row mb16">
+                        <div class="col-md-24">
+                            <div class="es-table-btn pull-left">
+                                <button class="btn btn-sm btn-primary mr8"><i class="fa fa-plus mr5"></i>新建商品</button>
+                                <button class="btn btn-sm btn-primary mr8"><i class="fa fa-refresh mr5"></i>导出商品属性</button>
+                                <button class="btn btn-sm btn-danger mr8"><i class="fa fa-trash mr5"></i>批量删除</button>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">更多操作……</a>
+                                        <a class="dropdown-item" href="#">更多操作……</a>
+                                        <a class="dropdown-item" href="#">更多操作……</a>
+                                        <a class="dropdown-item" href="#">更多操作……</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="es-table-filter pull-right">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label>条件筛选：</label>
+                                        <select class="selectpicker mr8" data-style="btn-sm btn-default" data-width="fit" data-live-search="true">
+                                            <option>所有系统分类</option>
+                                            <option>床上用品</option>
+                                            <option>运动/瑜伽/健身/球迷用品</option>
+                                            <option>淘商号</option>
+                                            <option>其他</option>
+                                            <option>居家布艺</option>
+                                            <option>节庆用品/礼品</option>
+                                            <option>餐饮具</option>
+                                            <option>收纳整理</option>
+                                            <option>家居饰品</option>
+                                            <option>特色手工艺</option>
+                                            <option>衬衫</option>
+                                            <option>住宅家具</option>
+                                            <option>家装主材</option>
+                                            <option>居家日用</option>
+                                        </select>
+                                        <select class="selectpicker mr8" data-style="btn-sm btn-default" data-width="fit" data-live-search="true">
+                                            <option>所有品牌</option>
+                                            <option>百丽丝</option>
+                                            <option>水星</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="" name="" style="width: 160px;">
+                                        <button class="btn btn-sm btn-primary"><i class="fa fa-search mr5"></i>搜索</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-sm btn-link" data-toggle="collapse" data-target=".advanced-search" aria-expanded="false" aria-controls="advanced-search">高级搜索</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="advanced-search collapse col-md-24">
+                            <div class="advanced-search-wrapper">
+                                <div class="col-md-20">
+                                    <div class="row mb8">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="col-md-6 control-label">商品名称</label>
+                                                <div class="col-md-18">
+                                                    <input type="text" class="form-control" name="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="col-md-6 control-label">商品编码</label>
+                                                <div class="col-md-18">
+                                                    <input type="text" class="form-control" name="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="col-md-6 control-label">货号</label>
+                                                <div class="col-md-18">
+                                                    <input type="text" class="form-control" name="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="col-md-6 control-label">商品名称</label>
+                                                <div class="col-md-18">
+                                                    <input type="text" class="form-control" name="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="col-md-6 control-label">商品编码</label>
+                                                <div class="col-md-18">
+                                                    <input type="text" class="form-control" name="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="col-md-6 control-label">货号</label>
+                                                <div class="col-md-18">
+                                                    <input type="text" class="form-control" name="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-sm btn-primary">搜索</button>
+                                    <a href="" data-toggle="collapse" data-target=".advanced-search" aria-expanded="false" aria-controls="advanced-search">取消搜索</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-24">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="thead-inverse">
+                                        <tr>
+                                            <th style="width: 30px">
+                                                <input type="checkbox" name="">
+                                            </th>
+                                            <th>图片</th>
+                                            <th style="width: 100px;">商品编码</th>
+                                            <th>名称</th>
+                                            <th style="width: 80px;">货号</th>
+                                            <th>系统分类</th>
+                                            <th style="width: 100px;">品牌</th>
+                                            <th>铺货店铺</th>
+                                            <th style="width: 100px;">更新日期</th>
+                                            <th style="width: 120px;">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" attr-width="60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" disabled name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">全棉斜纹印花四件套</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <input type="checkbox" name="">
+                                            </td>
+                                            <td>
+                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                            </td>
+                                            <td>RY303904</td>
+                                            <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
+                                            <td>304672</td>
+                                            <td>床上用品>>床品套件/四件套/多件套</td>
+                                            <td>百丽丝</td>
+                                            <td><a href="">天猫-华菲型格官方旗舰店</a></td>
+                                            <td>2016-08-04</td>
+                                            <td>
+                                                <a href="###" class="mr8">编辑</a>
+                                                <a href="###" class="mr8">删除</a>
+                                                <a href="###">审核</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    @include('_includes/footer.html')
+</body>
+
+</html>
