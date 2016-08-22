@@ -25,29 +25,16 @@
  var del = require('del'); // 清除目录
  var zip = require('gulp-zip'); // 生成压缩包
  var sequence = require('gulp-sequence'); // 任务执行顺序
- var notify = require("gulp-notify");
+ // var notify = require("gulp-notify");
  var rev = require('gulp-rev');
  var revCollector = require('gulp-rev-collector');
+
+ var handleErrors = require('./gulp/util/handleErrors.js');
 
  /**
   * [ gulp tasks ]
   * --------------
   */
-
- // 错误处理 handleError
- function handleError() {
- 	var args = Array.prototype.slice.call(arguments);
-
- 	// Send error to notification center with gulp-notify
- 	notify.onError({
- 		title: "Compile Error",
- 		message: "<%= error.message %>"
- 	}).apply(this, args);
-
- 	// Keep gulp from hanging on this task
- 	this.emit('end');
- };
-
 
  // BROWSERIFY 模块化打包 JS(利用 watchify 提高性能，利用 factor bundle 分割代码)， 依赖 COPY:JS 任务
  gulp.task('COPY:JS', function() {
@@ -101,7 +88,7 @@
 
  	function bundle() {
  		b.bundle()
- 			.on('error', handleError)
+ 			.on('error', handleErrors)
  			.pipe(source("common.js"))
  			.pipe(buffer())
  			.pipe(sourcemaps.init({
@@ -162,7 +149,7 @@
 
  	function bundle() {
  		b.bundle()
- 			.on('error', handleError)
+ 			.on('error', handleErrors)
  			.pipe(source("common.js"))
  			.pipe(buffer())
  			.pipe(sourcemaps.init({
