@@ -4,8 +4,6 @@
   * [ gulp node_modules ]
   * ---------------------
   */
- var path = require('path');
- var fs = require('fs');
  var gulp = require('gulp');
  var browserSync = require('browser-sync').create();
  var concat = require('gulp-concat'); // 合并文件
@@ -30,6 +28,7 @@
  var revCollector = require('gulp-rev-collector');
 
  var handleErrors = require('./gulp/util/handleErrors.js');
+ var handleGetEntry = require('./gulp/util/handleGetEntry.js');
 
  /**
   * [ gulp tasks ]
@@ -49,26 +48,10 @@
 
  gulp.task('BROWSERIFY:JS', ['COPY:JS'], function() {
 
- 	// 获取多页面的每个 JS 入口文件
- 	function getEntry() {
- 		var jsDir = path.resolve(process.cwd(), './app/_assets/js/');
- 		var dirs = fs.readdirSync(jsDir);
- 		var matchs = [];
- 		var entryFiles = [];
-
- 		dirs.forEach(function(item) {
- 			matchs = item.match(/(.+)\.js$/);
- 			if (matchs) {
- 				entryFiles.push('./app/_assets/js/' + matchs[1] + '.js');
- 			}
- 		});
-
- 		return entryFiles;
- 	};
 
  	// 获取打包生成 JS 文件路径
  	function getOut() {
- 		var outFiles = getEntry().map(function(item, index) {
+ 		var outFiles = handleGetEntry().map(function(item, index) {
  			return item.replace('./app/_assets/js/', './build/dev/_assets/js/');
  		});
 
@@ -77,13 +60,19 @@
 
  	// 初始化 BROWSERIFY 打包任务
  	var b = browserify({
- 		entries: getEntry(),
+ 		entries: handleGetEntry(),
  		cache: {},
  		packageCache: {},
- 		plugin: [watchify, [factor, {
- 			outputs: getOut()
- 		}]],
+ 		// plugin: [watchify, [factor, {
+ 		// 	outputs: getOut()
+ 		// }]],
  		debug: true
+ 	});
+
+ 	b.plugin(watchify);
+
+ 	b.plugin(factor, {
+ 		outputs: getOut()
  	});
 
  	function bundle() {
@@ -110,26 +99,9 @@
 
  gulp.task('BUILD:JS', ['COPY1:JS'], function() {
 
- 	// 获取多页面的每个 JS 入口文件
- 	function getEntry() {
- 		var jsDir = path.resolve(process.cwd(), './app/_assets/js/');
- 		var dirs = fs.readdirSync(jsDir);
- 		var matchs = [];
- 		var entryFiles = [];
-
- 		dirs.forEach(function(item) {
- 			matchs = item.match(/(.+)\.js$/);
- 			if (matchs) {
- 				entryFiles.push('./app/_assets/js/' + matchs[1] + '.js');
- 			}
- 		});
-
- 		return entryFiles;
- 	};
-
  	// 获取打包生成 JS 文件路径
  	function getOut() {
- 		var outFiles = getEntry().map(function(item, index) {
+ 		var outFiles = handleGetEntry().map(function(item, index) {
  			return item.replace('./app/_assets/js/', './build/prod/_assets/js/');
  		});
 
@@ -138,13 +110,14 @@
 
  	// 初始化 BROWSERIFY 打包任务
  	var b = browserify({
- 		entries: getEntry(),
+ 		entries: handleGetEntry(),
  		cache: {},
  		packageCache: {},
- 		plugin: [watchify, [factor, {
- 			outputs: getOut()
- 		}]],
  		debug: true
+ 	});
+
+ 	b.plugin(factor, {
+ 		outputs: getOut()
  	});
 
  	function bundle() {

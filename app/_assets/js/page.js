@@ -28,5 +28,5 @@ var Page = function() {
 // 实例化页面调用
 $(function() {
     Page.init();
-    console.log('eee');
+    console.log('hhh');
 })
