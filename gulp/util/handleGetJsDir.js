@@ -4,19 +4,19 @@ var fs = require('fs');
 // 获取 JS 入口/出口文件路径
 module.exports = {
 	entryFiles: function() {
-
-		var jsDir = path.resolve('./app/_assets/js/');
+		var srcApp = './app/_assets/js/'
+		var jsDir = path.resolve(srcApp);
 		var dirs = fs.readdirSync(jsDir);
 		var entryFiles = [];
 
 		for (var i = 0; i < dirs.length; i++) {
-			fs.readdirSync('./app/_assets/js/' + dirs[i]).forEach(function(file) {
-				if (file.match(/\.js$/) !== null && file !== file.match(/\.scss$/)) {
-					entryFiles.push('./app/_assets/js/' + dirs[i] + '/' + file);
+			fs.readdirSync(srcApp + dirs[i]).forEach(function(file) {
+				if (file.match(/\.js$/) !== null) {
+					entryFiles.push(srcApp + dirs[i] + '/' + file);
 				}
 			});
 		}
-		
+
 		return entryFiles;
 	},
 
