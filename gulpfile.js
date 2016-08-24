@@ -28,51 +28,45 @@
  var revCollector = require('gulp-rev-collector');
 
  var handleErrors = require('./gulp/util/handleErrors.js');
- var handleGetEntry = require('./gulp/util/handleGetEntry.js');
+ var handleGetJsDir = require('./gulp/util/handleGetJsDir.js');
 
  /**
   * [ gulp tasks ]
   * --------------
   */
+ 
+ gulp.task('test', function() {
+ 	handleGetJsDir.entryFiles('app');
+ 	handleGetJsDir.devOut('dev');
+ 	handleGetJsDir.devOut('prod');
+ });
 
  // BROWSERIFY 模块化打包 JS(利用 watchify 提高性能，利用 factor bundle 分割代码)， 依赖 COPY:JS 任务
  gulp.task('COPY:JS', function() {
- 	return gulp.src('./app/_assets/js/*.js')
+ 	return gulp.src('./app/_assets/js/**/*.js')
  		.pipe(gulp.dest('./build/dev/_assets/js/'))
  });
 
  gulp.task('COPY1:JS', function() {
- 	return gulp.src('./app/_assets/js/*.js')
+ 	return gulp.src('./app/_assets/js/**/*.js')
  		.pipe(gulp.dest('./build/prod/_assets/js/'))
  });
 
+
  gulp.task('BROWSERIFY:JS', ['COPY:JS'], function() {
-
-
- 	// 获取打包生成 JS 文件路径
- 	function getOut() {
- 		var outFiles = handleGetEntry().map(function(item, index) {
- 			return item.replace('./app/_assets/js/', './build/dev/_assets/js/');
- 		});
-
- 		return outFiles;
- 	};
 
  	// 初始化 BROWSERIFY 打包任务
  	var b = browserify({
- 		entries: handleGetEntry(),
+ 		entries: handleGetJsDir.entryFiles(),
  		cache: {},
  		packageCache: {},
- 		// plugin: [watchify, [factor, {
- 		// 	outputs: getOut()
- 		// }]],
  		debug: true
  	});
 
  	b.plugin(watchify);
 
  	b.plugin(factor, {
- 		outputs: getOut()
+ 		outputs: handleGetJsDir.devOut('dev')
  	});
 
  	function bundle() {
@@ -96,28 +90,18 @@
 
  });
 
-
  gulp.task('BUILD:JS', ['COPY1:JS'], function() {
-
- 	// 获取打包生成 JS 文件路径
- 	function getOut() {
- 		var outFiles = handleGetEntry().map(function(item, index) {
- 			return item.replace('./app/_assets/js/', './build/prod/_assets/js/');
- 		});
-
- 		return outFiles;
- 	};
 
  	// 初始化 BROWSERIFY 打包任务
  	var b = browserify({
- 		entries: handleGetEntry(),
+ 		entries: handleGetJsDir.entryFiles(),
  		cache: {},
  		packageCache: {},
  		debug: true
  	});
 
  	b.plugin(factor, {
- 		outputs: getOut()
+ 		outputs: handleGetJsDir.devOut('prod')
  	});
 
  	function bundle() {
@@ -125,10 +109,6 @@
  			.on('error', handleErrors)
  			.pipe(source("common.js"))
  			.pipe(buffer())
- 			.pipe(sourcemaps.init({
- 				loadMaps: true
- 			}))
- 			.pipe(sourcemaps.write('.'))
  			.pipe(gulp.dest('./build/prod/_assets/js/'));
  	};
 
@@ -136,37 +116,47 @@
 
  });
 
+ gulp.task('UGLIFY:JS', function() {
+ 	gulp.src('./build/prod/_assets/js/**/*.js')
+ 		.pipe(uglify())
+ 		.pipe(gulp.dest('./build/prod/_assets/js/'));
+ })
+
 
  // 拷贝压缩图片。
  gulp.task('COPY:IMG', function() {
  	return gulp.src('./app/_assets/img/**/*.{JPG,jpg,png,gif,svg}')
- 		.pipe(imagemin())
  		.pipe(gulp.dest('./build/dev/_assets/img/'))
  		.pipe(browserSync.stream());
  });
 
- gulp.task('BUILD:IMG', ['COPY:IMG'], function() {
- 	return gulp.src('./build/dev/_assets/img/**/*.{JPG,jpg,png,gif,svg}')
- 		.pipe(gulp.dest('./build/prod/_assets/img/'))
+ gulp.task('BUILD:IMG', function() {
+ 	return gulp.src('./app/_assets/img/**/*.{JPG,jpg,png,gif,svg}')
+ 		.pipe(imagemin())
+ 		.pipe(gulp.dest('./build/prod/_assets/img/'));
  });
 
- // 编译 HTML。
+ // 编译 HTML
  gulp.task('COPY:HTML', function() {
- 	return gulp.src('./app/*.html')
+ 	return gulp.src('./app/_page/*.html')
  		.pipe(fileInclude({
  			prefix: '@',
  			basepath: '@file'
  		}))
- 		.pipe(gulp.dest('./build/dev/'))
+ 		.pipe(gulp.dest('./build/dev/_page/'))
  		.pipe(browserSync.stream());
  });
 
- gulp.task('BUILD:HTML', ['COPY:HTML'], function() {
- 	return gulp.src('./build/dev/*.html')
- 		.pipe(gulp.dest('./build/prod/'));
+ gulp.task('BUILD:HTML', function() {
+ 	return gulp.src('./app/_page/*.html')
+ 		.pipe(fileInclude({
+ 			prefix: '@',
+ 			basepath: '@file'
+ 		}))
+ 		.pipe(gulp.dest('./build/prod/_page/'));
  });
 
- // 编译 SASS。
+ // 编译 SASS
  gulp.task('COPY:SASS', function() {
  	return gulp.src(['./app/_assets/css/**/*.scss', './node_modules/font-awesome/css/font-awesome.min.css', './node_modules/bootstrap-select/dist/css/bootstrap-select.min.css', '!./app/_assets/css/bootstrap/*.scss', '!./app/_assets/css/app/*.scss'])
  		.pipe(sass.sync().on('error', sass.logError))
@@ -225,7 +215,7 @@
 
  // REV COLLECTOR CSS/JS文件添加时间戳。
  gulp.task('REV', function() {
- 	return gulp.src(['./build/prod/_assets/css/*.css', './build/prod/_assets/js/*.{js,map}'], {
+ 	return gulp.src(['./build/prod/_assets/css/*.css', './build/prod/_assets/js/**/*.{js,map}'], {
  			base: './build/prod/'
  		})
  		.pipe(gulp.dest('./build/prod/'))
@@ -252,11 +242,11 @@
  		},
  		reloadDelay: 0,
  		timestamps: true,
- 		startPath: "./build/dev/",
+ 		startPath: "./build/dev/_page/",
  		port: 8000
  	});
  	gulp.watch('./app/_assets/css/**/*', ['COPY:SASS']);
- 	gulp.watch('./app/**/*.html', ['COPY:HTML']);
+ 	gulp.watch('./app/_page/*.html', ['COPY:HTML']);
  	gulp.watch('./app/_assets/img/**/*.{JPG,jpg,png,gif,svg}', ['COPY:IMG']);
  	gulp.watch('./build/dev/**/*.html').on("change", browserSync.reload);
  });
@@ -266,4 +256,4 @@
  gulp.task('DEV', sequence('CLEAN', ['COPY:HTML', 'COPY:SASS', 'BROWSERIFY:JS', 'COPY:IMG', 'COPY:FONTS'], 'BROWSER:WATCH'));
 
  // 打包发布 PROD
- gulp.task('PROD', sequence('CLEAN', ['BUILD:HTML', 'BUILD:SASS', 'BUILD:IMG', 'BUILD:JS', 'BUILD:FONTS'], 'REV', 'REV:COLLECTOR', 'BUILD:ZIP'));
+ gulp.task('PROD', sequence('CLEAN', ['BUILD:HTML', 'BUILD:SASS', 'BUILD:IMG', 'BUILD:JS', 'BUILD:FONTS'], 'REV', 'REV:COLLECTOR', 'UGLIFY:JS', 'BUILD:ZIP'));

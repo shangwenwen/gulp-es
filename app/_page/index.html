@@ -1,146 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-@include('_includes/header.html')
+<head>
+    <meta charset="UTF-8">
+    <title>ESAdmin index</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    @include('../_includes/header.html')
+    <!-- app.css -->
+    <link rel="stylesheet" type="text/css" href="../_assets/css/index.css" />
+</head>
 
 <body>
     <div class="es-wrapper">
-        <nav class="es-header navbar-fixed-top">
-            <a class="es-brand" href="#">
-                <img src="_assets/img/logo_header.png">
-            </a>
-            <ul class="es-menu pull-left">
-                <li class="menu-item active">
-                    <a href="#">商品中心</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">店铺中心</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">运营中心</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">消息中心</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">仓库管理</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">订单管理</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">系统设置</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">账号中心</a>
-                </li>
-            </ul>
-            <ul class="es-user-center pull-right">
-                <li class="es-notice">
-                    <a href="javascript:void();" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <p>notice</p>
-                    </div>
-                </li>
-                <li class="es-tasks">
-                    <a href="javascript:void();" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-tasks"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <p>tasks</p>
-                    </div>
-                </li>
-                <li class="es-user">
-                    <a href="javascript:void();" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <p>user</p>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+        @include('../_includes/headerHtml.html')
         <div class="es-container">
-            <div class="es-sidebar-wrapper">
-                <div class="es-sidebar-menu">
-                    <ul class="sidebar-menu">
-                        <li class="header">商品中心</li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-database"></i>
-                                <span>商品属性</span>
-                                <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="###"><i class="fa fa-circle-o"></i>活动图</a></li>
-                                <li class="active"><a href="###"><i class="fa fa-circle-o"></i>商品拍摄图</a></li>
-                                <li><a href="###"><i class="fa fa-circle-o"></i>商品PS图</a></li>
-                                <li><a href="###"><i class="fa fa-circle-o"></i>商品设计图</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-align-left"></i>
-                                <span>商品详情图</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-check-circle"></i>
-                                <span>商品审核</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-github-square"></i>
-                                <span>素材管理</span>
-                                <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="###"><i class="fa fa-circle-o"></i>活动图</a></li>
-                                <li class="active"><a href="###"><i class="fa fa-circle-o"></i>商品拍摄图</a></li>
-                                <li><a href="###"><i class="fa fa-circle-o"></i>商品PS图</a></li>
-                                <li><a href="###"><i class="fa fa-circle-o"></i>商品设计图</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-text-width"></i>
-                                <span>商品文案</span>
-                                <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="###"><i class="fa fa-circle-o"></i>活动图</a></li>
-                                <li class="active"><a href="###"><i class="fa fa-circle-o"></i>商品拍摄图</a></li>
-                                <li><a href="###"><i class="fa fa-circle-o"></i>商品PS图</a></li>
-                                <li><a href="###"><i class="fa fa-circle-o"></i>商品设计图</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-photo"></i>
-                                <span>主商品设置</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-trash"></i>
-                                <span>回收站</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="es-sidebar-toggler">
-                    <button class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i></button>
-                </div>
-            </div>
+            @include('../_includes/sideMenu.html')
             <div class="es-content-wrapper">
                 <div class="es-content">
                     <div class="row">
@@ -292,7 +169,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" attr-width="60" />
+                                                <img src="../../_assets/img/img_60_60.png" class="img-60-60" attr-width="60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -312,7 +189,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套</a></td>
@@ -332,7 +209,7 @@
                                                 <input type="checkbox" disabled name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -352,7 +229,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">全棉斜纹印花四件套</a></td>
@@ -372,7 +249,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -392,7 +269,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -412,7 +289,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -432,7 +309,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -452,7 +329,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -472,7 +349,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -492,7 +369,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -512,7 +389,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -532,7 +409,7 @@
                                                 <input type="checkbox" name="">
                                             </td>
                                             <td>
-                                                <img src="_assets/img/img_60_60.png" class="img-60-60" />
+                                                <img src="../_assets/img/img_60_60.png" class="img-60-60" />
                                             </td>
                                             <td>RY303904</td>
                                             <td><a href="">百丽丝家纺 全棉斜纹印花四件套  精灵爱跳舞</a></td>
@@ -557,7 +434,8 @@
         </div>
     </div>
     <!-- footer -->
-    @include('_includes/footer.html')
+    @include('../_includes/footer.html')
+    <script type="text/javascript" src="../_assets/js/index.js"></script>
 </body>
 
 </html>
